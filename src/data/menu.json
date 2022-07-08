@@ -1,0 +1,36 @@
+{
+    "data": [
+        {   "title": "Dashboard", 
+            "icon": "home", 
+            "type": "link", 
+            "path": "/dashboard",
+            "active": false 
+        },
+        {
+            "title": "Products",
+            "icon": "box",
+            "type": "sub",
+            "active": false,
+            "children": [
+                { "path": "/product-list", "title": "Product List", "type": "link" },
+                { "path": "/add-product", "title": "Add Product", "type": "link" }
+            ]
+        },
+        {
+            "title": "Users",
+            "icon": "user-plus",
+            "type": "sub",
+            "active": false,
+            "children": [
+                { "path": "/user-list", "title": "User List", "type": "link" },
+                { "path": "/create-user", "title": "Create User", "type": "link" }
+            ]
+        },
+        {
+            "path": "/auth/login",
+            "title": "Login",
+            "icon": "log-in",
+            "type": "link"
+        }
+    ]
+}
