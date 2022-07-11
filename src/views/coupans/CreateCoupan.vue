@@ -140,10 +140,7 @@
                     <label class="col-xl-3 col-md-4">Category</label>
                     <select class="custom-select col-md-7" required="">
                       <option value="">--Select--</option>
-                      <option value="1">Electronics</option>
-                      <option value="2">Clothes</option>
-                      <option value="2">Shoes</option>
-                      <option value="2">Digital</option>
+                      <option v-for="category in categories" :value="category.name">{{category.name}}</option>
                     </select>
                   </div>
                   <div class="form-group row">
@@ -184,12 +181,25 @@
 
 <script>
 export default {
-  data() {
-    return {};
-  },
-  methods: {
-    onComplete() {}
-  }
+	data() {
+		return {
+			categories: [],
+		};
+	},
+	methods: {
+		onComplete() {}
+	},
+	created(){
+		const BASE_URL =  this.$store.state.config.BASE_URL
+		this.$http.get(`${BASE_URL}/category/getall`, {
+		})
+		.then(response => {
+			this.categories = response.data           
+		})
+		.catch(function (error) {
+			console.log('error', error);
+		});
+	}
 };
 </script>
 

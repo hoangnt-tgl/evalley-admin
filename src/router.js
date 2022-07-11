@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Dashboard from './views/Dashboard'
+import Profile from './views/Profile'
 import ProductList from './views/products/ProductList'
 import AddProduct from './views/products/AddProduct'
 import UserList from './views/users/UserList'
@@ -16,6 +17,14 @@ const routes = [
 		path: '/dashboard',
 		name: 'dasboard',
 		component: Dashboard,
+		meta: {
+			layout: 'admin'
+		}
+	},
+	{
+		path: '/profile',
+		name: 'profile',
+		component: Profile,
 		meta: {
 			layout: 'admin'
 		}

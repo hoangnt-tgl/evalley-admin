@@ -37,6 +37,16 @@
             ]
         },
         {
+            "title": "Settings",
+            "icon": "settings",
+            "type": "sub",
+            "active": false,
+            "children": [
+                { "path": "/profile", "title": "Profile", "type": "link" },
+                { "path": "/edit-profile", "title": "Edit Profile", "type": "link" }
+            ]
+        },
+        {
             "path": "/auth/login",
             "title": "Login",
             "icon": "log-in",

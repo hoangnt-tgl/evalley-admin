@@ -55,25 +55,17 @@
                 ><span class="main-circle"></span>
               </div>
             </div>
-            <ul
-              class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover"
-            >
+            <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
               <li>
+                <router-link to="/edit-profile">
                 <a><feather type="user"></feather>Edit Profile</a>
-              </li>
-              <li>
-                <a><feather type="mail"></feather>Inbox</a>
-              </li>
-              <li>
-                <a><feather type="lock"></feather>Lock Screen</a>
+                </router-link> 
               </li>
               <li>
                 <a><feather type="settings"></feather>Settings</a>
               </li>
               <li>
-                <a @click="logout"
-                  ><feather type="log-out"></feather><span>Log out</span></a
-                >
+                <a @click="logout"><feather type="log-out"></feather><span>Log out</span></a>
               </li>
             </ul>
           </li>
