@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Dashboard from './views/Dashboard.vue'
+import Dashboard from './views/Dashboard'
 import ProductList from './views/products/ProductList'
 import AddProduct from './views/products/AddProduct'
 import UserList from './views/users/UserList'
 import CreateUser from './views/users/CreateUser'
-
+import CoupanList from './views/coupans/CoupanList'
+import CreateCoupan from './views/coupans/CreateCoupan'
 
 Vue.use(Router)
 
@@ -47,6 +48,22 @@ const routes = [
 		path: '/create-user',
 		name: 'create-user',
 		component: CreateUser,
+		meta: {
+			layout: 'admin'
+		}
+	},
+	{
+		path: '/create-Coupan',
+		name: 'create-Coupan',
+		component: CreateCoupan,
+		meta: {
+			layout: 'admin'
+		}
+	},
+	{
+		path: '/coupan-list',
+		name: 'coupan-list',
+		component: CoupanList,
 		meta: {
 			layout: 'admin'
 		}

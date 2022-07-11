@@ -184,7 +184,7 @@ export default {
 
         })
         .catch(function (error) {
-            console.log(error)
+            console.log('error', error);
         });
         
     },
@@ -236,7 +236,18 @@ export default {
                     }
                 }
             }
-            console.log(this.selected)
+            // this.$http.post(`${BASE_URL}/user/delete`, {
+            //     token: "",
+            //     selected: selected
+            // })
+            // .then(response => {
+            //     if(response.data.success){
+                               
+            //     }
+            // })
+            // .catch(function (error) {
+            //     console.log('error', error);
+            // });
         },
         deleteBatchRow() {
             for (var i = 0; i < this.selected.length; i++) {

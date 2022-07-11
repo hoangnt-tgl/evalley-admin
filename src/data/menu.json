@@ -27,6 +27,16 @@
             ]
         },
         {
+            "title": "Coupans",
+            "icon": "tag",
+            "type": "sub",
+            "active": false,
+            "children": [
+                { "path": "/coupan-list", "title": "Coupans List", "type": "link" },
+                { "path": "/create-coupan", "title": "Create Coupans", "type": "link" }
+            ]
+        },
+        {
             "path": "/auth/login",
             "title": "Login",
             "icon": "log-in",
