@@ -4,12 +4,14 @@ import router from './router'
 import Axios from 'axios'
 import VueFeather from 'vue-feather';
 import BootstrapVue from 'bootstrap-vue'
+import Breadcrumbs from './components/bread-crumbs.vue'
 import store from './store'
 
 Vue.prototype.$http = Axios
 Vue.config.productionTip = false
 Vue.use(BootstrapVue);
 Vue.use(VueFeather);
+Vue.component('Breadcrumbs', Breadcrumbs);
 import './assets/scss/app.scss'
 import './assets/scss/admin.scss'
 import '@fortawesome/fontawesome-free/css/all.css'

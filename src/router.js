@@ -10,6 +10,7 @@ import CreateUser from './views/users/CreateUser'
 Vue.use(Router)
 
 const routes = [
+	{ path: '', redirect: { name: 'dasboard' } },
 	{
 		path: '/dashboard',
 		name: 'dasboard',
