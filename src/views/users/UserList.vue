@@ -13,10 +13,15 @@
               <h5>User Detail</h5>
             </div>
             <div class="card-body">
-            
-              <router-link to="/create-user">
-                <b-button class="btn-popup pull-right">Create User</b-button >
-              </router-link>
+              <div class="row justify-content-end">
+                <!-- <router-link to="/create-user" class="col">
+                  <b-button class="btn-popup pull-right">Create User</b-button >
+                </router-link> -->
+
+                <router-link to="/create-user" class="col-auto">
+                  <b-button class="btn-popup pull-right">Create User</b-button >
+                </router-link>
+              </div>
               <b-row>
                 <b-col xl="3" lg="4" md="6">
                   <b-form-group
@@ -33,7 +38,7 @@
                 <b-col class="offset-xl-6 offset-lg-2 search-rs" xl="3" lg="5" md="6">
                   <b-form-group
                     label-cols="3"
-                    label=""
+                    label="Search"
                     class="datatable-select"
                   >
                     <b-form-input
@@ -98,6 +103,24 @@
                       width="50px"
                     />
                   </template>
+                  <template v-slot:cell(actions)="{ item }">
+                    <router-link
+                      style="font-size: 20px; color: blue;"
+                      :to="'/edit-user/'+item._id"
+                    >
+                      <feather
+                        type="edit-2"
+                        stroke="#3758FD"
+                        stroke-width="1"
+                        size="18px"
+                        fill="#3758FD"
+                        stroke-linejoin="round"
+                      ></feather>
+                    </router-link>
+
+                    
+                
+                  </template>
                   <template #cell(status) v-for="(item, index) in items">
                     <feather
                       v-if="item.status == 'active'"
@@ -161,13 +184,14 @@ export default {
                 { key: "name", label: "Name", sortable: false },
                 { key: "email", label: "Email", sortable: true },
                 { key: "lastLogin", label: "Last Login", sortable: false },
-                { key: "role", label: "Role", sortable: true }
+                { key: "role", label: "Role", sortable: true },
+                { key: "actions" }
             ],
             filter: null,
             totalRows: 1,
             currentPage: 1,
             perPage: 10,
-            pageOptions: [5, 10, 15],
+            pageOptions: [5, 10, 15, 50],
             selectMode: "multi",
             selected: []
         };

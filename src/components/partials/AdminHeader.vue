@@ -5,7 +5,7 @@
       <div class="main-header-left d-lg-none">
         <div class="logo-wrapper">
           <router-link to="/dashboard">
-            <h1 class="m-4">EVALLEY</h1>
+            <h4 class="my-2 mx-5" style='fontSize: 1.6rem;'>EVALLEY</h4>
           </router-link>
         </div>
       </div>
