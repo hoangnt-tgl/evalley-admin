@@ -6,11 +6,15 @@ import VueFeather from 'vue-feather';
 import BootstrapVue from 'bootstrap-vue'
 import Breadcrumbs from './components/bread-crumbs.vue'
 import store from './store'
+import Toasted from 'vue-toasted';
 
 Vue.prototype.$http = Axios
 Vue.config.productionTip = false
 Vue.use(BootstrapVue);
 Vue.use(VueFeather);
+Vue.use(Toasted, {
+  iconPack: 'fontawesome'
+});
 Vue.component('Breadcrumbs', Breadcrumbs);
 import './assets/scss/app.scss'
 import './assets/scss/admin.scss'

@@ -8,11 +8,20 @@ import UserList from './views/users/UserList'
 import CreateUser from './views/users/CreateUser'
 import CoupanList from './views/coupans/CoupanList'
 import CreateCoupan from './views/coupans/CreateCoupan'
+import Auth from './views/authentication/index'
 
 Vue.use(Router)
 
 const routes = [
 	{ path: '', redirect: { name: 'dasboard' } },
+	{
+		path: '/login',
+		name: 'login',
+		component: Auth,
+		meta: {
+
+		}
+	},
 	{
 		path: '/dashboard',
 		name: 'dasboard',
@@ -78,14 +87,6 @@ const routes = [
 		}
 	},
 	{
-		path: '/login',
-		name: 'login',
-		component: () => import('./views/Login.vue'),
-		meta: {
-			layout: 'admin'
-		}
-	},
-	{
 		path: '*',
 		name: 'Error',
 		meta: {
@@ -100,16 +101,11 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-    // firebase.auth().onAuthStateChanged(() => {
-    //     if (to.meta.title)
-    //         document.title = to.meta.title;
-    //     const CurrentUser = firebase.auth().currentUser;
-    //     const path = ['/auth/login', '/register'];
-    //     if (path.includes(to.path) || to.path === "/callback" || CurrentUser || Userauth.isAuthenticatedUser()) {
-    //         return next();
-    //     }
-    //     next('/auth/login')
-    // });
-	return next();
+	const CurrentUser = localStorage.getItem('token');
+	const path = ['/login', '/register'];
+	if (path.includes(to.path) || to.path === "/callback" || CurrentUser) {
+		return next();
+	}
+	next('/login')
 });
 export default router

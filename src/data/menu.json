@@ -47,7 +47,7 @@
             ]
         },
         {
-            "path": "/auth/login",
+            "path": "/login",
             "title": "Login",
             "icon": "log-in",
             "type": "link"

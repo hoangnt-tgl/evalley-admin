@@ -170,10 +170,9 @@
 </template>
 
 <script>
-
+const {BASE_URL} =  require('../../config')
 
 export default {
-
     data() {
         return {
             items: [],
@@ -197,7 +196,6 @@ export default {
         };
     },
     created() {
-        const BASE_URL =  this.$store.state.config.BASE_URL
         this.$http.post(`${BASE_URL}/user/getall`, {
             token: ""
         })

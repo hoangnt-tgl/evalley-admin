@@ -74,7 +74,7 @@
 
 <script>
 import statusIcon from "../../components/featherIcons/status-icon.vue";
-
+const {BASE_URL} =  require('../../config')
 export default {
   components: { statusIcon },
   data() {
@@ -98,6 +98,16 @@ export default {
     };
   },
   created() {
+    this.$http.post(`${BASE_URL}/voucher/getall`, {
+      token: ""
+    })
+    .then(response => {
+			this.items = response.data   
+			console.log(this.items)        
+    })
+    .catch(function (error) {
+			console.log('error', error);
+    });
   },
 
   mounted() {
