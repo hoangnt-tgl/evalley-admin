@@ -258,18 +258,30 @@ export default {
                     }
                 }
             }
-            // this.$http.post(`${BASE_URL}/user/delete`, {
-            //     token: "",
-            //     selected: selected
-            // })
-            // .then(response => {
-            //     if(response.data.success){
-                               
-            //     }
-            // })
-            // .catch(function (error) {
-            //     console.log('error', error);
-            // });
+            this.$http.post(`${BASE_URL}/user/delete`, {
+                token: "",
+                selected: this.selected
+            })
+            .then(response => {
+                if(response.data.success){
+                  this.$toasted.show(response.data.message, {
+                    theme: "bubble",
+                    position: "top-right",
+                    type: "success",
+                    duration: 2000
+                  });             
+                } else {
+                  this.$toasted.show(response.data.message, {
+                    theme: "bubble",
+                    position: "top-right",
+                    type: "error",
+                    duration: 2000
+                  });
+                }
+            })
+            .catch(function (error) {
+                console.log('error', error);
+            });
         },
         deleteBatchRow() {
             for (var i = 0; i < this.selected.length; i++) {

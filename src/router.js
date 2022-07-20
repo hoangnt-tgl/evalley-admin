@@ -39,6 +39,14 @@ const routes = [
 		}
 	},
 	{
+		path: '/edit-profile',
+		name: 'edit-profile',
+		component: Profile,
+		meta: {
+			layout: 'admin'
+		}
+	},
+	{
 		path: '/product-list',
 		name: 'product-list',
 		component: ProductList,

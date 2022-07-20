@@ -40,7 +40,7 @@
           <li>
             <a class="text-dark" href="#!" @click="toggle_fullscreen()"
               ><i data-feather="maximize-2"
-                ><feather type="maximize-2"></feather></i
+                ><feather :type="screen"></feather></i
             ></a>
           </li>
           <li class="onhover-dropdown">
@@ -93,11 +93,15 @@ export default {
       chatSidebar: false,
       headerMenu:false,
       opensearch: false,
+      typeScreen: 'maximize-2',
     };
   },
   computed: {
     sidebar() {
       return this.$store.state.menu.togglesidebar;
+    },
+    screen() {
+      return this.typeScreen
     }
   },
   methods: {
@@ -124,6 +128,7 @@ export default {
             Element.ALLOW_KEYBOARD_INPUT
           );
         }
+        this.typeScreen = 'minimize-2'
       } else {
         if (document.cancelFullScreen) {
           document.cancelFullScreen();
@@ -132,10 +137,12 @@ export default {
         } else if (document.webkitCancelFullScreen) {
           document.webkitCancelFullScreen();
         }
+        this.typeScreen = 'maximize-2'
       }
     },
     logout: function() {
-      
+      localStorage.removeItem('token')
+      window.location.reload()
     },
     handleResize() {
     this.width = window.innerWidth;

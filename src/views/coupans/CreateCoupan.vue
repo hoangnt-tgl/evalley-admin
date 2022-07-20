@@ -242,7 +242,7 @@ export default {
         })
         .then(res=> {
             if (res.data.success){
-              this.$toasted.show("succesfully loged in", {
+              this.$toasted.show("Create Coupon success", {
                 theme: "bubble",
                 position: "top-right",
                 type: "success",

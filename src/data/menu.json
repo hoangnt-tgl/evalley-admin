@@ -43,7 +43,7 @@
             "active": false,
             "children": [
                 { "path": "/profile", "title": "Profile", "type": "link" },
-                { "path": "/edit-profile", "title": "Edit Profile", "type": "link" }
+                { "path": "/adit-profile", "title": "Edit Profile", "type": "link" }
             ]
         },
         {
