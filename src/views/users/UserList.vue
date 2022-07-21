@@ -205,7 +205,6 @@ export default {
             if(response.data.success){
                 this.items = response.data.user           
             }
-
         })
         .catch(function (error) {
             console.log('error', error);

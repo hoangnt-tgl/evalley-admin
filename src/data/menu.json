@@ -37,6 +37,16 @@
             ]
         },
         {
+            "title": "Orders",
+            "icon": "tag",
+            "type": "sub",
+            "active": false,
+            "children": [
+                { "path": "/order-list", "title": "Orders List", "type": "link" },
+                { "path": "/create-order", "title": "Create Orders", "type": "link" }
+            ]
+        },
+        {
             "title": "Settings",
             "icon": "settings",
             "type": "sub",
