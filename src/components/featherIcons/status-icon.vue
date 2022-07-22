@@ -2,6 +2,7 @@
   <div>
     <feather
       v-if="field.item.status"
+      title="active"
       type="circle"
       stroke="#FFFFFF"
       stroke-width="1"
@@ -12,6 +13,7 @@
     </feather>
     <feather
       v-if="!field.item.status"
+      title="inactive"
       type="circle"
       stroke="#FFFFFF"
       stroke-width="1"

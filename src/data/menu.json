@@ -53,11 +53,11 @@
             "active": false,
             "children": [
                 { "path": "/profile", "title": "Profile", "type": "link" },
-                { "path": "/edit-profile", "title": "Edit Profile", "type": "link" }
+                { "path": "/adit-profile", "title": "Edit Profile", "type": "link" }
             ]
         },
         {
-            "path": "/auth/login",
+            "path": "/login",
             "title": "Login",
             "icon": "log-in",
             "type": "link"
