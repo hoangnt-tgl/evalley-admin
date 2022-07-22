@@ -38,7 +38,7 @@
         },
         {
             "title": "Orders",
-            "icon": "tag",
+            "icon": "shopping-bag",
             "type": "sub",
             "active": false,
             "children": [
