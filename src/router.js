@@ -9,7 +9,8 @@ import CreateUser from './views/users/CreateUser'
 import CoupanList from './views/coupans/CoupanList'
 import CreateCoupan from './views/coupans/CreateCoupan'
 import Auth from './views/authentication/index'
-
+import OrderList from './views/orders/OrderList'
+import CreateOrder from './views/orders/CreateOrder'
 Vue.use(Router)
 
 const routes = [
@@ -90,6 +91,23 @@ const routes = [
 		path: '/coupan-list',
 		name: 'coupan-list',
 		component: CoupanList,
+		meta: {
+			layout: 'admin'
+		}
+	},
+
+	{
+		path: '/order-list',
+		name: 'order-list',
+		component: OrderList,
+		meta: {
+			layout: 'admin'
+		}
+	},
+	{
+		path: '/create-order',
+		name: 'create-order',
+		component: CreateOrder,
 		meta: {
 			layout: 'admin'
 		}
