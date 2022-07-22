@@ -237,7 +237,7 @@ export default {
       }
     },
     getImgUrl(path) {
-      return require("@/assets/images/" + path);
+      return require("@/assets/images/pro3/" + path);
     },
     rowSelected(item) {
       this.selected = item._id;
