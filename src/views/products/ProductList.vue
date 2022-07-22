@@ -17,22 +17,45 @@
                 <!-- <router-link to="/create-user" class="col">
                   <b-button class="btn-popup pull-right">Create User</b-button >
                 </router-link> -->
+
+                <router-link to="/add-product" class="col-auto">
+                  <b-button class="btn-popup pull-right">Create Product</b-button >
+                </router-link>
               </div>
               <b-row>
                 <b-col xl="3" lg="4" md="6">
-                  <b-form-group label-cols="3" label="show" class="datatable-select">
-                    <b-form-select v-model="perPage" :options="pageOptions"></b-form-select>
+                  <b-form-group
+                    label-cols="3"
+                    label="Show"
+                    class="datatable-select"
+                  >
+                    <b-form-select
+                      v-model="perPage"
+                      :options="pageOptions"
+                    ></b-form-select>
                   </b-form-group>
                 </b-col>
                 <b-col class="offset-xl-6 offset-lg-2 search-rs" xl="3" lg="5" md="6">
-                  <b-form-group label-cols="3" label="Search" class="datatable-select">
-                    <b-form-input type="text" v-model="filter" placeholder="Search"></b-form-input>
+                  <b-form-group
+                    label-cols="3"
+                    label="Search"
+                    class="datatable-select"
+                  >
+                    <b-form-input
+                      type="text"
+                      v-model="filter"
+                      placeholder="Search"
+                    ></b-form-input>
                   </b-form-group>
                 </b-col>
               </b-row>
               <div class="table-responsive datatable-vue user-list">
                 <div>
-                  <b-modal id="modal-1" title="Confirmation" @ok="deleteBatchRow">
+                  <b-modal
+                    id="modal-1"
+                    title="Confirmation"
+                    @ok="deleteBatchRow"
+                  >
                     <p class="my-4">Are you sure!</p>
                   </b-modal>
                 </div>
@@ -48,34 +71,73 @@
                   :selectable="false"
                 >
                 </commonTable>-->
-                <b-table class="text-center" :select-mode="selectMode" show-empty striped hover head-variant="light"
-                  bordered stacked="md" :items="items" :fields="tablefields" :filter="filter"
-                  :current-page="currentPage" :per-page="perPage" @filtered="onFiltered" @row-selected="rowSelected">
+                <b-table
+                  class="text-center"
+                  :select-mode="selectMode"
+                  show-empty
+                  striped
+                  hover
+                  head-variant="light"
+                  bordered
+                  stacked="md"
+                  :items="items"
+                  :fields="tablefields"
+                  :filter="filter"
+                  :current-page="currentPage"
+                  :per-page="perPage"
+                  @filtered="onFiltered"
+                  @row-selected="rowSelected"
+                >
                   <template v-slot:head(delete)>
-                    <b-button variant="danger" :disabled="selectedRows.length === 0" @click="showMsgBoxTwo">Delete
-                    </b-button>
+                    <b-button
+                      variant="danger"
+                      :disabled="selectedRows.length === 0"
+                      @click="showMsgBoxTwo"
+                      >Delete</b-button
+                    >
                   </template>
-                  <template #cell(image)="field">
-                    <img height="50px" :src="getImgUrl(field.item.avatar)" width="50px" />
+                  <template #cell(images)="field">
+                    <img
+                      height="50px"
+                      :src="getImgUrl(field.item.images[0].src)"
+                      width="50px"
+                    />
                   </template>
                   <template v-slot:cell(actions)="{ item }">
-                    <router-link style="font-size: 20px; color: blue;" :to="'/edit-user/' + item._id">
-                      <feather type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD"
-                        stroke-linejoin="round"></feather>
+                    <router-link
+                      style="font-size: 20px; color: blue;"
+                      :to="'/edit-user/'+item._id"
+                    >
+                      <feather
+                        type="edit-2"
+                        stroke="#3758FD"
+                        stroke-width="1"
+                        size="18px"
+                        fill="#3758FD"
+                        stroke-linejoin="round"
+                      ></feather>
                     </router-link>
 
-
-
+                    
+                
                   </template>
                   <template #cell(status) v-for="(item, index) in items">
-                    <feather v-if="item.status == 'active'" :key="index" type="circle" stroke="#81BA01" stroke-width="1"
-                      size="12px" :fill="
+                    <feather
+                      v-if="item.status == 'active'"
+                      :key="index"
+                      type="circle"
+                      stroke="#81BA01"
+                      stroke-width="1"
+                      size="12px"
+                      :fill="
                         item.status == 'active'
                           ? '#81BA01'
                           : item.status == 'inactive'
-                            ? '#FBBC58'
-                            : ''
-                      " stroke-linejoin="round"></feather>
+                          ? '#FBBC58'
+                          : ''
+                      "
+                      stroke-linejoin="round"
+                    ></feather>
                   </template>
                   <b-table-column v-slot:cell(delete)>
                     <a href="#">edit</a>
@@ -83,13 +145,21 @@
                   </b-table-column>
 
                   <template v-slot:cell(delete)="{ item, field: { key } }">
-                    <b-checkbox v-model="item[key]" @change="deleteSelected(item)"></b-checkbox>
+                    <b-checkbox
+                      v-model="item[key]"
+                      @change="deleteSelected(item)"
+                    ></b-checkbox>
                   </template>
                 </b-table>
               </div>
               <b-col md="12" class="my-1 p-0 pagination-justify">
-                <b-pagination v-model="currentPage" :total-rows="totalRows" :per-page="perPage" aria-controls="my-table"
-                  class="mt-4"></b-pagination>
+                <b-pagination
+                  v-model="currentPage"
+                  :total-rows="totalRows"
+                  :per-page="perPage"
+                  aria-controls="my-table"
+                  class="mt-4"
+                ></b-pagination>
               </b-col>
             </div>
           </div>
@@ -108,14 +178,14 @@ export default {
     return {
       items: [],
       tablefields: [
-        { key: "images[0].src", label: "image", sortable: false },
-        { key: "title", label: "Name", sortable: false, editable: true },
-        { key: "brand", label: "Brand", sortable: false, editable: true },
-        { key: "category", label: "Category", sortable: false, editable: true },
-        { key: "discount", label: "Discount", sortable: false, editable: true },
-        { key: "price", label: "Price", sortable: false, editable: true },
-        { key: "stock", label: "Quantity", sortable: false, editable: true },
-        { key: "status", label: "Status", sortable: false, editable: true },
+        { key: "images", label: "Image", sortable: false },
+        { key: "title", label: "Name", sortable: true, editable: true },
+        { key: "brand", label: "Brand", sortable: true, editable: true },
+        { key: "category", label: "Category", sortable: true, editable: true },
+        { key: "discount", label: "Discount", sortable: true, editable: true },
+        { key: "price", label: "Price", sortable: true, editable: true },
+        { key: "stock", label: "Quantity", sortable: true, editable: true },
+        { key: "status", label: "Status", sortable: true, editable: true },
         { key: "actions"},
       ],
       filter: null,
@@ -167,7 +237,7 @@ export default {
       }
     },
     getImgUrl(path) {
-      return require("@/assets/images/users/" + path);
+      return require("@/assets/images/" + path);
     },
     rowSelected(item) {
       this.selected = item._id;
