@@ -170,7 +170,7 @@
 </template>
 
 <script>
-
+const {BASE_URL} =  require('../../config')
 
 export default {
 
@@ -198,7 +198,7 @@ export default {
     };
   },
   created() {
-    const BASE_URL = this.$store.state.config.BASE_URL
+    
     this.$http.get(`${BASE_URL}/product/getall`, {
       token: ""
     })
