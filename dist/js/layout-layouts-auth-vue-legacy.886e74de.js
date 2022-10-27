@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkevalley"]=self["webpackChunkevalley"]||[]).push([[565],{3952:function(e,u,l){l.r(u),l.d(u,{default:function(){return f}});var n=function(){var e=this,u=e._self._c;return u("div",[u("router-view")],1)},t=[],r={name:"auth"},a=r,s=l(1001),c=(0,s.Z)(a,n,t,!1,null,null,null),f=c.exports}}]);
+//# sourceMappingURL=layout-layouts-auth-vue-legacy.886e74de.js.map
