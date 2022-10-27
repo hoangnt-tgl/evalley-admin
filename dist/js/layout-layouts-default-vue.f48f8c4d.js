@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkevalley"]=self["webpackChunkevalley"]||[]).push([[263],{9878:function(e,n,l){l.r(n),l.d(n,{default:function(){return i}});var u=function(){var e=this,n=e._self._c;return n("div",[n("router-view")],1)},t=[],r={name:"admin",components:{}},a=r,s=l(1001),c=(0,s.Z)(a,u,t,!1,null,null,null),i=c.exports}}]);
+//# sourceMappingURL=layout-layouts-default-vue.f48f8c4d.js.map
